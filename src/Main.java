@@ -8,8 +8,15 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class Main extends Application {
+    private static final String API_KEY = "33a6de0373ba46d3980403bfb1f4915a"; // Replace with your actual API key 
+    //APP id: 33a6de0373ba46d3980403bfb1f4915a
 
     public HBox addhbox(){
         HBox hbox = new HBox();
@@ -122,7 +129,38 @@ public class Main extends Application {
         primaryStage.show();
 
     }
-    /*public static void Main(String[] args){
+    private float getExchangeRate(String fromCurrency, String toCurrency) {
+        try {
+            URL url = new URL("https://open.er-api.com/v6/latest/" + fromCurrency + "?apikey=" + API_KEY);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            StringBuilder response = new StringBuilder();
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                response.append(line);
+            }
+
+            reader.close();
+            connection.disconnect();
+
+            // Parse the JSON response to get the exchange rate
+            // This is a simplified example; you may want to use a JSON library for better handling
+            String jsonResponse = response.toString();
+            String rateKey = "rates";
+            int ratesIndex = jsonResponse.indexOf(rateKey) + rateKey.length() + 2;
+            int endIndex = jsonResponse.indexOf(",", ratesIndex);
+            float exchangeRate = Float.parseFloat(jsonResponse.substring(ratesIndex, endIndex));
+
+            return exchangeRate;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return 1.0f; // Default to 1:1 conversion if there's an error
+        }
+    }
+    public static void Main(String[] args){
         launch(args);
-    }*/
+    }
 }
