@@ -19,43 +19,37 @@ A JavaFX-based desktop application that allows users to convert between currenci
 2. Replace the placeholder API key in the code:
    ```java
    private static final String API_KEY = "YOUR_API_KEY_HERE";
-Ensure the JavaFX libraries are added to your classpath.
-Compile and run the program:
-javac Main.java
-java Main
-How to Use
+# How to Use
 
-Input the Amount: Enter the amount you want to convert.
-Select the Currencies: Use the dropdown menus to choose the source and target currencies.
-Convert: Click the "Convert" button to see the converted value in the output field.
-Pause and Retry: The application handles invalid input by defaulting the exchange rate to 1:1 if the API fails.
-Code Highlights
+- **Input the Amount**: Enter the amount you want to convert.
+- **Select the Currencies**: Use the dropdown menus to choose the source and target currencies.
+- **Convert**: Click the "Convert" button to see the converted value in the output field.
+- **Pause and Retry**: The application handles invalid input by defaulting the exchange rate to 1:1 if the API fails.
 
-Core Functionalities:
-API Integration: Fetches live exchange rates.
-Dynamic Currency Selection: Allows users to select any two supported currencies.
-Responsive Design: The layout adjusts for optimal viewing.
-Key Methods:
-getExchangeRate(String fromCurrency, String toCurrency):
-Fetches the exchange rate between the selected currencies using the API.
-Handles JSON responses using the org.json library.
-Event Handling: Listens for user interactions like button clicks and text input.
-Dependencies
+# Code Highlights
 
-JavaFX for GUI development.
-org.json for JSON parsing.
-Screenshots
+### Core Functionalities:
+- **API Integration**: Fetches live exchange rates.
+- **Dynamic Currency Selection**: Allows users to select any two supported currencies.
+- **Responsive Design**: The layout adjusts for optimal viewing.
 
+### Key Methods:
+- `getExchangeRate(String fromCurrency, String toCurrency)`: Fetches the exchange rate between the selected currencies using the API. Handles JSON responses using the `org.json` library.
+- **Event Handling**: Listens for user interactions like button clicks and text input.
+
+# Dependencies
+- **JavaFX** for GUI development.
+- **org.json** for JSON parsing.
+
+# Screenshots
 (Not included but describe how the layout looks: Top text for title, input field on the left, dropdowns in the center/right, and output with the "Convert" button at the bottom.)
 
-Known Issues
+# Known Issues
+- Defaults to 1:1 exchange rate if the API call fails (e.g., due to connectivity issues).
+- Limited to four currencies. Add more currencies by modifying the dropdown menus and API query.
 
-Defaults to 1:1 exchange rate if API call fails (e.g., due to connectivity issues).
-Limited to four currencies. Add more currencies by modifying the dropdown menus and API query.
-License
-
+# License
 This project is released under the MIT License.
 
-Author
-
+# Author
 Alistair Chambers
