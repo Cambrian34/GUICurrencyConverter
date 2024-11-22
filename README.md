@@ -41,9 +41,6 @@ A JavaFX-based desktop application that allows users to convert between currenci
 - **JavaFX** for GUI development.
 - **org.json** for JSON parsing.
 
-# Screenshots
-(Not included but describe how the layout looks: Top text for title, input field on the left, dropdowns in the center/right, and output with the "Convert" button at the bottom.)
-
 # Known Issues
 - Defaults to 1:1 exchange rate if the API call fails (e.g., due to connectivity issues).
 - Limited to four currencies. Add more currencies by modifying the dropdown menus and API query.
